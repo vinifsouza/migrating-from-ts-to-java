@@ -14,8 +14,10 @@ public class HelloWorldController {
     private HelloWorldService helloWorldService;
 
     @GetMapping // GET /
-    public String sayHello() {
-        return helloWorldService.sayHello("Vinícius");
+    public HashMap<String, String> sayHello() {
+        HashMap<String, String> result = new HashMap<>();
+        result.put("message", helloWorldService.sayHello("Vinícius"));
+        return result;
     }
 
     @PostMapping("/{id}")
