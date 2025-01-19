@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: vinifsouza
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: eventostech
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 4040:8080
+
+volumes:
+  pgdata:
